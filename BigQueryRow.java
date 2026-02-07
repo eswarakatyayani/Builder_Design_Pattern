@@ -74,3 +74,35 @@ public class Main {
 Output:
 NC6303228278 | V1 | 2026-02-07 | remarks | Order Created
 */
+
+//Optimal Approach
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
+public class BigQueryRow {
+
+    private String orderNumber;
+    private String orderVersion;
+    private String created;
+    private String notesType;
+    private String notes;
+
+    public static void main(String[] args) {
+
+        BigQueryRow row = BigQueryRow.builder()
+                .orderNumber("ORD-1")
+                .orderVersion("v1")
+                .created("2026-02-07")
+                .notesType("INFO")
+                .notes("Order Created")
+                .build();
+
+        System.out.println(row);
+    }
+}
+/*
+Output:
+BigQueryRow(orderNumber=ORD-1, orderVersion=v1, created=2026-02-07, notesType=INFO, notes=Order Created)
+*/
